@@ -1,14 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Addition_task
 {
-    class Printer
+    internal class Printer
     {
-        public void Print (string value)
+        readonly ConsoleColor color;
+
+        protected Printer(ConsoleColor color)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
+            this.color = color;
+        }
+
+        public void Print(string value)
+        {
+            Console.ForegroundColor = color;
             Console.WriteLine(value);
             Console.ResetColor();
         }

@@ -10,15 +10,19 @@ using System;
 
 namespace Addition_task
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            DerivedPrinter instance = new DerivedPrinter();
-            instance.Print("Hi");
-            Console.WriteLine($"Хэш-код первого экземпляра = {instance.GetHashCode()}");
+            DerivedPrinter instance1 = new DerivedPrinter(ConsoleColor.Blue);
+            instance1.Print("Hi");
+            Console.WriteLine($"Хэш-код первого экземпляра = {instance1.GetHashCode()}");
 
-            Printer newInstance = instance as Printer;
+            DerivedPrinter instance2 = new DerivedPrinter(ConsoleColor.Green);
+            instance2.Print("Hi");
+            Console.WriteLine($"Хэш-код первого экземпляра = {instance2.GetHashCode()}");
+
+            Printer newInstance = instance2 as Printer;
             newInstance.Print("Qq");
             Console.WriteLine($"Хэш-код второго экземпляра = {newInstance.GetHashCode()}");
 
